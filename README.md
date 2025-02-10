@@ -1,7 +1,12 @@
-# Packages
+# Built with
+
+## Stack
 - React
 - Nextjs
 - Tailwind
+- Vercel
+
+## Packages
 - DaisyUI
 - Framer-motion
 - Clerk
@@ -10,3 +15,4 @@
 
 ## Development
 - Prettier
+
