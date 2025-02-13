@@ -2,19 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --purple: #7c3aed;
+  --purple-light: #f3e8ff;
+  --purple-contrast: #6d28d9;
+  --gray-1: #e5e7eb;
+  --gray-2: #d1d5db;
+  --gray-3: #f3f4f6;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .tiptap {
-    :first-child {
-      margin-top: 0;
-    }
-  
-    img {
-      display: block;
-      height: auto;
-      margin: 1.5rem 0;
-      max-width: 100%;
-  
-      &.ProseMirror-selectednode {
-        outline: 3px solid var(--purple);
-      }
-    }
+  :first-child {
+    margin-top: 10px;
   }
+
+  h1 {
+    margin-top: 3.5rem;
+    margin-bottom: 1.0rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: #faf3ee;
+    display: inline-block;
+  }
+
+  h2 {
+    margin-top: 3.5rem;
+    margin-bottom: 1.0rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-bottom: 8px solid #faf3ee;
+  }
+
+  h3 {
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  p {
+    /* margin-top: 1.0rem; */
+    margin-bottom: 1.0rem;
+    font-size: 1.0rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1.0rem;
+    margin-bottom: 1.0rem;
+  }
+}
+
+.tiptap:focus {
+  outline: none;
+}
