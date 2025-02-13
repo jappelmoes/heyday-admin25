@@ -21,7 +21,7 @@ import React from "react";
 import MenuBar from "./TipTapMenuBar";
 import Text from "@tiptap/extension-text";
 import { EditorContent, useEditor } from '@tiptap/react'
-
+import DropZone from "./DropZone";
 
 const extensions = [
   Document,
