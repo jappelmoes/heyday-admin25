@@ -1,7 +1,7 @@
 import React from 'react'
 import { createClient } from '@/utils/supabase/server'
 import TipTap from '@/components/TipTap';
-import DropZone from '@/components/DropZone';
+import MediaZone from '@/components/MediaZone';
 
 export default async function Page({ params }: { params: { article: string } }) {
   const articleId = await params.article;
@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: { article: string } }) 
   return (
     <div className="flex flex-col gap-4">
       <TipTap content={data[0].content} />
-      <DropZone />
+      <MediaZone />
     </div>
   )
 }
