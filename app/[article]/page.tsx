@@ -19,7 +19,6 @@ export default async function Page({ params }: { params: { article: string } }) 
   return (
     <div className="flex flex-col gap-4">
       <TipTap content={data[0].content} />
-      <MediaZone />
     </div>
   )
 }

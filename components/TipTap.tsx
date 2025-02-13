@@ -21,7 +21,7 @@ import React from "react";
 import MenuBar from "./TipTapMenuBar";
 import Text from "@tiptap/extension-text";
 import { EditorContent, useEditor } from '@tiptap/react'
-import DropZone from "./DropZone";
+import MediaZone from "./MediaZone";
 
 const extensions = [
   Document,
@@ -60,8 +60,9 @@ export default function TipTap({ content }: { content: string }) {
 
   return (
     <div className="flex h-full w-full gap-6">
-      <div className="sticky top-0 h-screen mt-3">
+      <div className="sticky top-0 h-screen mt-3 w-96">
         <MenuBar editor={editor!} />
+        <MediaZone editor={editor!} />
       </div>
       <div className="w-96">
         <EditorContent editor={editor} />
