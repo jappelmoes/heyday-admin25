@@ -1,35 +1,28 @@
 "use client";
 
 import React, { useState } from "react";
+import { mediaService } from "@/utils/mediazone/mediaService";
 
-export default function DropZone({ onUploadComplete }: { onUploadComplete: () => void }) {
+export default function DropZone({
+  onUploadComplete,
+  selectedFolder,
+}: {
+  onUploadComplete: () => void;
+  selectedFolder: string;
+}) {
   const [uploading, setUploading] = useState(false);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setUploading(true);
-      const file = e.target.files[0];
-      const formData = new FormData();
-      formData.append("file", file);
+    if (!e.target.files || e.target.files.length === 0) return;
 
-      try {
-        const response = await fetch("/api/upload", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (!response.ok) {
-          throw new Error("File upload failed");
-        }
-
-        const result = await response.json();
-        console.log("File uploaded successfully:", result);
-        onUploadComplete();
-      } catch (error) {
-        console.error("Error uploading file:", error);
-      } finally {
-        setUploading(false);
-      }
+    setUploading(true);
+    try {
+      await mediaService.uploadFile(e.target.files[0], selectedFolder);
+      onUploadComplete();
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    } finally {
+      setUploading(false);
     }
   };
 

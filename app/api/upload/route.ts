@@ -5,10 +5,14 @@ import { v4 as uuidv4 } from "uuid";
 export async function POST(request: Request) {
   const formData = await request.formData();
   const file = formData.get("file") as File;
+  const folder = formData.get("folder") as string;
 
   if (!file) {
     return NextResponse.json({ error: "No file provided" }, { status: 400 });
   }
+
+   // Normalize folder path
+   const normalizedFolder = !folder || folder === "uploads" ? "uploads" : folder;
 
   try {
     const supabase = await createClient();
@@ -20,7 +24,7 @@ export async function POST(request: Request) {
     // Upload to storage
     const { data, error } = await supabase.storage
       .from("media")
-      .upload(`uploads/${uniqueFileName}`, file);
+      .upload(`${normalizedFolder}/${uniqueFileName}`, file);
 
     if (error) throw error;
 
@@ -31,6 +35,7 @@ export async function POST(request: Request) {
         {
           name: uniqueFileName,
           path: data.path,
+          folder: normalizedFolder,
         },
       ]);
 

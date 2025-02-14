@@ -60,9 +60,11 @@ export default function TipTap({ content }: { content: string }) {
 
   return (
     <div className="flex h-full w-full gap-6">
-      <div className="sticky top-0 h-screen mt-3 w-96">
-        <MenuBar editor={editor!} />
-        <MediaZone editor={editor!} />
+      <div className="sticky top-0 h-screen pt-12 w-96">
+        <div className="flex flex-col gap-4">
+          <MenuBar editor={editor!} />
+          <MediaZone editor={editor!} />
+        </div>
       </div>
       <div className="w-96">
         <EditorContent editor={editor} />
