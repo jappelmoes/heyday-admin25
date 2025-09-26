@@ -26,9 +26,6 @@ import MediaZone from "./MediaZone";
 const extensions = [
   Document,
   Text,
-  // Paragraph,
-  // Color.configure({}),
-  // TextStyle.configure({}),
   Paragraph,
   Bold,
   Italic,
@@ -36,20 +33,7 @@ const extensions = [
   Heading.configure({
     levels: [1, 2, 3],
   }),
-  // BulletList.configure({
-  //   keepMarks: true,
-  //   keepAttributes: false,
-  // }),
-  // OrderedList.configure({
-  //   keepMarks: true,
-  //   keepAttributes: false,
-  // }),
-  // Blockquote,
-  // CodeBlock,
-  // Link,
   Image,
-  // Table,
-  // History,
 ];
 
 export default function TipTap({ content }: { content: string }) {
@@ -60,15 +44,25 @@ export default function TipTap({ content }: { content: string }) {
   });
 
   return (
-    <div className="flex h-full w-full gap-6">
-      <div className="sticky top-0 h-screen pt-12 w-96">
-        <div className="flex flex-col gap-4">
+    <div className="flex flex-col lg:flex-row gap-6 p-6">
+      {/* Editor Toolbar and Media */}
+      <div className="lg:w-80 space-y-4">
+        <div className="sticky top-6">
           <MenuBar editor={editor!} />
+        </div>
+        <div className="sticky top-40">
           <MediaZone editor={editor!} />
         </div>
       </div>
-      <div className="w-96">
-        <EditorContent editor={editor} />
+      
+      {/* Editor Content */}
+      <div className="flex-1 min-w-0">
+        <div className="prose prose-lg max-w-none">
+          <EditorContent 
+            editor={editor} 
+            className="min-h-[600px] focus:outline-none"
+          />
+        </div>
       </div>
     </div>
   );

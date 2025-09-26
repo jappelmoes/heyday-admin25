@@ -40,10 +40,10 @@ export default function MediaZone({ editor }: { editor: Editor }) {
   }, [selectedFolder]);
 
   return (
-    <div className="flex flex-col gap-4 bg-gray-900 p-8 rounded-3xl">
+    <div className="flex flex-col gap-4 bg-gray-900 p-6 rounded-xl">
       <div className="flex gap-4 flex-col items-start justify-start">
         <div>
-          <h1 className="text-2xl font-bold text-white">Media library</h1>
+          <h3 className="text-lg font-bold text-white">Media Library</h3>
           <p className="text-sm text-gray-500">
             Click on an image to insert it into the editor
           </p>
@@ -75,7 +75,7 @@ export default function MediaZone({ editor }: { editor: Editor }) {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-1">
+      <div className="grid grid-cols-2 gap-2">
         {mediaItems.map((item) => (
           <div key={item.id} className="group relative aspect-square">
             <img

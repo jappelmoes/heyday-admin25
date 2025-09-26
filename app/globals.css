@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -12,6 +21,39 @@
   --gray-2: #d1d5db;
   --gray-3: #f3f4f6;
   --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Prose styles for the editor */
+.prose {
+  @apply text-gray-900 max-w-none;
+}
+
+.prose h1 {
+  @apply text-3xl font-bold mt-8 mb-4 text-gray-900;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold mt-6 mb-3 text-gray-900;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mt-4 mb-2 text-gray-900;
+}
+
+.prose p {
+  @apply mb-4 leading-7 text-gray-700;
+}
+
+.prose img {
+  @apply rounded-lg shadow-sm my-6;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .tiptap {
