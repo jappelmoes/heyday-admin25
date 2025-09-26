@@ -4,7 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 
 export default async function page() {
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
   const supabase = createClient(cookieStore);
   const { data, error } = await supabase.from("content_items").select("id, name");
   return (

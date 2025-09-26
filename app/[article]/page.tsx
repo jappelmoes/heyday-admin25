@@ -6,10 +6,10 @@ import MediaZone from '@/components/MediaZone';
 
 export const dynamic = 'force-dynamic';
 
-export default async function Page({ params }: { params: Promise<{ article: string }> }) {
-  const { article } = await params;
+export default async function Page({ params }: { params: { article: string } }) {
+  const { article } = params;
   const articleId = article;
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
   const supabase = createClient(cookieStore);
   const { data, error } = await supabase.from("content_items").select("*").eq("id", articleId);
   
