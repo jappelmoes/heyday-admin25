@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Calendar, Edit, Eye } from "lucide-react";
+import { Calendar, CreditCard as Edit, Eye } from "lucide-react";
 
 interface ArticleCardProps {
   id: string;
