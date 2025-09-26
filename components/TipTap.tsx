@@ -56,6 +56,7 @@ export default function TipTap({ content }: { content: string }) {
   const editor = useEditor({
     extensions,
     content,
+    immediatelyRender: false,
   });
 
   return (

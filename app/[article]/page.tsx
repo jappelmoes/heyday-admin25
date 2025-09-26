@@ -5,8 +5,9 @@ import MediaZone from '@/components/MediaZone';
 
 export const dynamic = 'force-dynamic';
 
-export default async function Page({ params }: { params: { article: string } }) {
-  const articleId = params.article;
+export default async function Page({ params }: { params: Promise<{ article: string }> }) {
+  const { article } = await params;
+  const articleId = article;
   const supabase = await createClient();
   const { data, error } = await supabase.from("content_items").select("*").eq("id", articleId);
   
