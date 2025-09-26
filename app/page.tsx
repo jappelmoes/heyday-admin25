@@ -1,9 +1,11 @@
 import React from "react";
+import { cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 
 export default async function page() {
-  const supabase = await createClient();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
   const { data, error } = await supabase.from("content_items").select("id, name");
   return (
     <div className="flex gap-4">
