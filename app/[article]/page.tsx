@@ -3,8 +3,10 @@ import { createClient } from '@/utils/supabase/server'
 import TipTap from '@/components/TipTap';
 import MediaZone from '@/components/MediaZone';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page({ params }: { params: { article: string } }) {
-  const articleId = await params.article;
+  const articleId = params.article;
   const supabase = await createClient();
   const { data, error } = await supabase.from("content_items").select("*").eq("id", articleId);
   
